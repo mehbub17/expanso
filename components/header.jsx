@@ -14,7 +14,7 @@ function Header() {
         <nav className="container mx-auto px-4 py-0 flex items-center justify-between">
             <Link href="/">
             <Image
-                src={"/logo2.png"}  
+                src={"/logo3.png"}  
                 alt="Expanso"
                 height={60}
                 width={200} 
