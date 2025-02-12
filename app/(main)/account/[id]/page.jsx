@@ -7,12 +7,13 @@ import { AccountChart } from "../_components/account-chart";
 
 const AccountPage = async({ params }) =>{
   
-  if (!params?.id) return notFound();
-  const accountData = await getAccountWithTransactions(params.id);
+  if (!params) return notFound(); // Ensure params exist before accessing id
 
-  if (!accountData) {
-    notFound();
-  }
+  const { id } = params; // Destructure after ensuring params exist
+  if (!id) return notFound(); // Check if id is valid
+
+  const accountData = await getAccountWithTransactions(id);
+  if (!accountData) return notFound();
 
   const { transactions, ...account } = accountData;
 
